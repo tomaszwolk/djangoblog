@@ -5,15 +5,23 @@
             <title>Blog dla programistów</title>
         </head>
 <body>
-<div>
-    <h1>Witam na stronie bloga!</h1>
-    <h2>Blog o programowaniu</h2>
-    <h3>Autor: Tomasz Wołk</h3>
-</div>
-<ul>
-    <li>Element listy</li>
-    <li>Element listy</li>
-    <li>Element listy</li>
-</ul>
+    <div>
+        <h1>Witam na stronie bloga!</h1>
+        <h2>Blog o programowaniu</h2>
+        <h3>Autor: Tomasz Wołk</h3>
+    </div>
+
+    {% comment "Komentarz autora - opcja" %}
+        Komentarz
+    {% endcomment %}
+
+    {% for post in posts %}
+    <div>
+        <p>opublikowany: {{ post.publish_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <em>{{ post.text|linebreaksbr }}</em>
+    </div>
+    {% endfor %}
+
 </body>
 </html>

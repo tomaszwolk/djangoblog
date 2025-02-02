@@ -7,8 +7,13 @@
             {{ post.publish_date }}
         </div>
         {% endif %}
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <h2>{{ post.title }}</h2>
-        <img src="{{ Post.image.url }}" alt="Obrazek" width="250px">
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="Image" width="250px">
+        {% endif %}
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
 {% endblock %}

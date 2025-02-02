@@ -1,3 +1,5 @@
 {% load static %}
 
-<img src="{{ Post.image.url }}" alt="Obrazek" width="250">
+{% if post and post.image %}
+	<img src="{{ post.image.url }}" alt="Image" width="250">
+{% endif %}
